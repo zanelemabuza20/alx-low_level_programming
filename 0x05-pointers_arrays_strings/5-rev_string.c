@@ -1,28 +1,24 @@
 #include "main.h"
+#include <string.h>
 
 /**
- * more_numbers - Print numbers 0 to 14 10 times
- * Return: zero
+ * rev_string - print string in reverse
+ * @s: pointer pointing to string
+ * Return: reversed string
  */
-void more_numbers(void)
+void rev_string(char *s)
 {
-	int i;
-	int j;
+	char rev = s[0];
+	int counter = 0;
+	int a;
 
-	i = 0;
-	while (i <= 9)
+	while (s[counter] != '\0')
+		counter++;
+	for (a = 0; a < counter; a++)
 	{
-		j = 0;
-		while (j <= 14)
-		{
-			if (j >= 10)
-			{
-				_putchar(48 + j / 10);
-			}
-			_putchar(48 + j % 10);
-			j++;
-		}
-		_putchar('\n');
-		i++;
+		counter--;
+		rev = s[a];
+		s[a] = s[counter];
+		s[counter] = rev;
 	}
 }
